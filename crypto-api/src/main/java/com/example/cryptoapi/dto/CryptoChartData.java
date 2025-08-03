@@ -1,7 +1,5 @@
 package com.example.cryptoapi.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 public class CryptoChartData {
@@ -9,7 +7,8 @@ public class CryptoChartData {
     private List<List<Number>> marketCaps;
     private List<List<Number>> totalVolumes;
 
-    public CryptoChartData() {}
+    public CryptoChartData() {
+    }
 
     public List<List<Number>> getPrices() {
         return prices;
