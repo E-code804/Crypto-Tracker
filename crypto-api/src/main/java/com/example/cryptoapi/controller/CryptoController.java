@@ -1,6 +1,7 @@
 // Controller to expose REST endpoints
 package com.example.cryptoapi.controller;
 
+import com.example.cryptoapi.dto.CryptoChartData;
 import com.example.cryptoapi.dto.CryptoCoin;
 import com.example.cryptoapi.service.CryptoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,13 @@ public class CryptoController {
     @GetMapping("/ping")
     public String ping() {
         return "pong";
+    }
+
+    @GetMapping("/coins/{coin}/chart")
+    public Mono<List<CryptoChartData>> getCryptoChartData(
+            @PathVariable String coin, @RequestParam(defaultValue = "1") String days
+    ) {
+        return cryptoService.getCoinChartData(coin, days);
     }
 
     @GetMapping("/top5")
