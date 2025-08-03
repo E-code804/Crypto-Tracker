@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/crypto")
+@CrossOrigin(origins = {"http://localhost:3000", "http://127.0.0.1:3000"}) // Add this line
 public class CryptoController {
     @Autowired
     private CryptoService cryptoService;
