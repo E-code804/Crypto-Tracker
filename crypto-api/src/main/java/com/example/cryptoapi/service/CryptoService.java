@@ -19,7 +19,7 @@ public class CryptoService {
                 .build();
     }
 
-    public Mono<List<CryptoChartData>> getCoinChartData(String coin, String days) {
+    public Mono<CryptoChartData> getCoinChartData(String coin, String days) {
         String path = String.format("/coins/%s/market_chart", coin);
 
         return webClient.get()
@@ -29,8 +29,7 @@ public class CryptoService {
                         .queryParam("days", days)
                         .build())
                 .retrieve()
-                .bodyToFlux(CryptoChartData.class)
-                .collectList();
+                .bodyToMono(CryptoChartData.class);
     }
 
     public Mono<List<CryptoCoin>> getTop5Cryptocurrencies() {

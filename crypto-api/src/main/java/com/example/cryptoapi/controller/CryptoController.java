@@ -22,7 +22,7 @@ public class CryptoController {
     }
 
     @GetMapping("/coins/{coin}/chart")
-    public Mono<List<CryptoChartData>> getCryptoChartData(
+    public Mono<CryptoChartData> getCryptoChartData(
             @PathVariable String coin, @RequestParam(defaultValue = "1") String days
     ) {
         return cryptoService.getCoinChartData(coin, days);

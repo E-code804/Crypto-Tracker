@@ -59,7 +59,7 @@ const TopCoinsCard: React.FC<Props> = ({ coin }) => {
           </div>
 
           <div className="flex-1">
-            <Link href={`/coins/${coin.id}`} className="block">
+            <Link href={`/coins/${id}`} className="block">
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 hover:text-blue-700 hover:underline transition-all duration-300 cursor-pointer">
                 {name}
               </h3>
